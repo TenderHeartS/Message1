@@ -3,42 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Послання для Саші - Тиждень 1</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Особливе повідомлення</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-            background-color: #f9f9f9;
+            background-color: #fefefe;
+            font-family: "Arial", sans-serif;
             color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .message {
-            font-size: 1.5em;
-            font-style: italic;
-            margin: 30px auto;
-            max-width: 600px;
-            background: #fff;
+        .container {
+            text-align: center;
             padding: 20px;
+            border: 2px solid #e0e0e0;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            background-color: #ffffff;
         }
-        h1 {
-            color: #ff6f61;
-        }
-        p.signature {
-            margin-top: 40px;
-            font-size: 1.1em;
+        .container h1 {
+            font-size: 24px;
             color: #555;
+        }
+        .container p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .emoji {
+            font-size: 48px;
+        }
+        a {
+            color: #0078d7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Привіт, Саша! 😊</h1>
-    <p>Це твоє послання на цей тиждень:</p>
-    <div class="message">
-        "Нехай цей тиждень буде сповнений радості та сонця! 🌞 Ти найкраща ❤️"
+    <div class="container">
+        <div id="message" class="emoji">🫶</div>
+        <p id="text">Завантажую повідомлення...</p>
+        <p><a id="link" href="#" target="_blank" style="display: none;">Перейти за посиланням</a></p>
     </div>
-    <p class="signature">З любов'ю, Віталій</p>
+
+    <script>
+        // Зашифрований текст (Base64)
+        const encryptedText = "0JfQsNCx0L7QstC10YHRjNC60LAuINCc0L7RgdGC0LDQudGC0LAg0LIuINCe0LvQuNGC0Ywg0YHRgtGA0L7QutC+0LIuINCX0LDQvdC+INC/0YDQtdC50YHQutCw0YbRltC+INCy0YPQttC90Ysg0L7QvdC+0LHRgtGL0LUu";
+        // Зашифроване посилання (Base64)
+        const encryptedLink = "aHR0cHM6Ly9leGFtcGxlLmNvbS9zZWNyZXQ=";
+
+        // Функція для розшифрування Base64
+        function decodeBase64(encoded) {
+            return decodeURIComponent(escape(atob(encoded)));
+        }
+
+        // Розшифровуємо текст
+        const decryptedText = decodeBase64(encryptedText);
+
+        // Додаємо текст на сторінку
+        const textElement = document.getElementById("text");
+        textElement.textContent = decryptedText;
+
+        // Розшифровуємо посилання
+        const decryptedLink = decodeBase64(encryptedLink);
+
+        // Додаємо посилання на сторінку
+        const linkElement = document.getElementById("link");
+        linkElement.href = decryptedLink;
+        linkElement.style.display = "inline"; // Робимо посилання видимим
+        linkElement.textContent = "Перейти за особливим посиланням ❤️";
+    </script>
 </body>
 </html>
-
