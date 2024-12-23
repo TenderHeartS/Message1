@@ -1,86 +1,38 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Особливе повідомлення</title>
-    <style>
-        body {
-            background-color: #fefefe;
-            font-family: "Arial", sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            background-color: #ffffff;
-        }
-        .container h1 {
-            font-size: 24px;
-            color: #555;
-        }
-        .container p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 20px 0;
-        }
-        .emoji {
-            font-size: 48px;
-        }
-        a {
-            color: #0078d7;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Секретне повідомлення</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+      color: #333;
+      padding: 20px;
+    }
+    .message {
+      font-size: 1.5rem;
+      margin-top: 20%;
+    }
+    .emoji {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div id="message" class="emoji">🫶</div>
-        <p id="text">Завантажую повідомлення...</p>
-        <p><a id="link" href="#" target="_blank" style="display: none;">Перейти за посиланням</a></p>
-    </div>
+  <div class="emoji">🤲❤️🤲</div>
+  <div class="message" id="secretMessage"></div>
 
-    <script>
-        // Зашифрований текст (Base64)
-        const encryptedText = "0JfQsNCx0L7QstC10YHRjNC60LAuINCc0L7RgdGC0LDQudGC0LAg0LIuINCe0LvQuNGC0Ywg0YHRgtGA0L7QutC+0LIuINCX0LDQvdC+INC/0YDQtdC50YHQutCw0YbRltC+INCy0YPQttC90Ysg0L7QvdC+0LHRgtGL0LUu";
-        // Зашифроване посилання (Base64)
-        const encryptedLink = "aHR0cHM6Ly9leGFtcGxlLmNvbS9zZWNyZXQ=";
+  <script>
+    // Шифрований текст у форматі Base64
+    const encryptedMessage = "VmplbmrRgdGM0Lg0KU1VaWU5IMUhIUk1CWElDMGRXV3JHVHdHS0xSMWJTVi4uLg0KU0FJRFJLIG9kbnLDqS4uLg0KTQ==";
 
-        // Функція для розшифрування Base64
-        function decodeBase64(encoded) {
-            return decodeURIComponent(escape(atob(encoded)));
-        }
-
-        // Розшифровуємо текст
-        const decryptedText = decodeBase64(encryptedText);
-
-        // Додаємо текст на сторінку
-        const textElement = document.getElementById("text");
-        textElement.textContent = decryptedText;
-
-        // Розшифровуємо посилання
-        const decryptedLink = decodeBase64(encryptedLink);
-
-        // Додаємо посилання на сторінку
-        const linkElement = document.getElementById("link");
-        linkElement.href = decryptedLink;
-        linkElement.style.display = "inline"; // Робимо посилання видимим
-        linkElement.textContent = "Перейти за особливим посиланням ❤️";
-    </script>
+    // Розшифрування тексту
+    const decodeMessage = atob(encryptedMessage);
+    document.getElementById("secretMessage").innerText = decodeMessage;
+  </script>
 </body>
 </html>
